@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>First Flask App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles.css') }}">
+<script></script>
+<body>
+<h1>#Positivity</h1>
+
+<form action="/input" method="post">
+  <label for="fname">What's on your mind?</label><br>
+  <input type="text" name="my-tweet"><br>
+  <input type="submit" value="Submit">
+</form>
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">On the blog, the latest from Rick on tour info, adaptations and more! <a href="https://t.co/vsYgjAzp27">https://t.co/vsYgjAzp27</a> (artwork by Orpheus Collar) <a href="https://t.co/4j9Ccvgbx4">pic.twitter.com/4j9Ccvgbx4</a></p>&mdash; Rick Riordan (@rickriordan) <a href="https://twitter.com/rickriordan/status/1309896857930338304?ref_src=twsrc%5Etfw">September 26, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">We’re committing Twitter to help increase the collective health, openness, and civility of public conversation, and to hold ourselves publicly accountable towards progress.</p>&mdash; jack (@jack) <a href="https://twitter.com/jack/status/969234275420655616?ref_src=twsrc%5Etfw">March 1, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+</body>
+</html>
