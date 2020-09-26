@@ -2,18 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>First Flask App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>#Twitter</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles.css') }}">
 <script></script>
+
+<style>
+label[for=name]
+{
+  font-size: 2em;
+  font-family: Roboto, sans-serif;
+}
+
+input[type=submit] {
+  border-radius: 4px;
+  font-family: Roboto, sans-serif;
+  background-color: rgb(135, 17, 159);
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 25%;
+  float: right;
+  margin-bottom: 20px;
+}
+
+input[type=text] {
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-position: 7px 10px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-image: url('/static/twitter-purple-logo3.png')
+}
+</style>
+
 <body>
 <h1>#Positivity</h1>
 
 <form action="/input" method="post">
-  <label for="fname">What's on your mind?</label><br>
-  <input type="text" name="my-tweet"><br>
+  <label for="name">What's on your mind?</label><br>
+  <input type="text" name="my-tweet" placeholder="Tweet something here..."><br>
   <input type="submit" value="Submit">
 </form>
 

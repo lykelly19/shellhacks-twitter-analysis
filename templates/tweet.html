@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>#Twitter</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+      #tweet-content {
+        font-family: Roboto, sans-serif;
+        box-sizing: border-box;
+        font-size: 1.5em;
+        border: 2px solid rgb(135, 17, 159);
+        width: 100%;
+        padding: 8px;
+      }
+      .result {
+        font-family: Roboto, sans-serif;
+        font-size: 1.2em;
+      }
+      .message-to-user {
+        font-family: Roboto, sans-serif;
+        font-size: 1.5em;
+      }
+      #score-color {
+        color: rgb(135, 17, 159);
+      }
+      input[type=submit] {
+        border-radius: 4px;
+        font-family: Roboto, sans-serif;
+        background-color: rgb(135, 17, 159);
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 25%;
+        float: right;
+        margin-bottom: 20px;
+      }
+    </style>
+</head>
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles.css') }}">
+<script></script>
+<body>
+<h1>#MyTweet</h1>
+<p id="tweet-content">{{ my_tweet }}</p>
+<p class="result"><strong>Verdict: </strong><span id="score-color">{{ polarity_text }}</span></p>
+<p class="result">Your tweet's compound score is: {{ score }}</p>
+<p class="message-to-user"><strong>{{ sentiment_message }}</strong></p>
+<form action="/tweet" method="post">
+  <input type="submit" value="Tweet it!">
+</form>
+
+</body>
+</html>
