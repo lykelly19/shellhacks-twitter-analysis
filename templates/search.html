@@ -46,14 +46,29 @@ input[type=text] {
 }
 #search-message {
   margin-top: 50px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 1.6em;
   font-family: Roboto, sans-serif;
   text-align: center;
 }
+.search-image{
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+img {
+  display: block;
+  height: 200px;
+  margin: auto;
+  padding-top: 20px;
+}
+#note {
+  font-family: Roboto, sans-serif;
+  margin-bottom: 20px;
+  text-align: center;
+}
 </style>
 <body>
-<h1>#Search</h1>
+<h1>#SafeSearch</h1>
 <form action="/search" method="post">
   <label for="name">What do you want to learn more about?</label><br>
   <input type="text" name="search-string" placeholder="I want to learn more about..."><br>
@@ -62,7 +77,11 @@ input[type=text] {
 <form action="/">
   <input type="submit" value="Go to Tweet" id="tweet">
 </form>
+<div class="search-image">
+  <img src="/static/thinking-birds.PNG">
+</div>
 <p id="search-message">{{ search_message | safe }}</p>
+<p id="note">{{ note }}</p>
 {{ html_string1 | safe }}
 {{ html_string2 | safe }}
 {{ html_string3 | safe }}

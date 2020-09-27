@@ -17,11 +17,12 @@
       }
       .result {
         font-family: Roboto, sans-serif;
-        font-size: 1.2em;
+        font-size: 1.5em;
       }
       .message-to-user {
         font-family: Roboto, sans-serif;
-        font-size: 1.5em;
+        font-size: 1.2em;
+        margin-bottom: 0px;
       }
       #score-color {
         color: rgb(135, 17, 159);
@@ -42,17 +43,25 @@
         margin: 20px;
         font-size: 18px;
       }
+      img {
+        margin-top: -40px;
+        margin-bottom: 10px;
+        display: block;
+        margin: auto;
+        height: 200px;
+      }
     </style>
 </head>
 <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles.css') }}">
 <script></script>
 <body>
-<h1>#MyTweet</h1>
+<h1>#HealthyConversations</h1>
 <p id="tweet-content">{{ my_tweet }}</p>
 <p class="result"><strong>Verdict: </strong><span id="score-color">{{ polarity_text }}</span></p>
 <p class="result">Your tweet's compound score is: {{ score }}</p>
 <p class="message-to-user"><strong>{{ sentiment_message }}</strong></p>
 <p class="message-to-user"><strong>{{ sentiment_message2 }}</strong></p>
+<img src="/static/happy-birds.PNG">
 <div class="flex-parent jc-center">
   <form action="/">
     <input type="submit" value="Go back">

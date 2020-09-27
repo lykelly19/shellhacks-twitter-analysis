@@ -38,19 +38,18 @@ def analyze():
     polarity_text = ""
 
     if score['compound'] < 0:
-        sentiment_message = "Are you sure you would like to tweet this? Harmful language may be hurtful to users of the platform."
-        sentiment_message2 = "Let's make sure we have #HealthyConversations on Twitter. Please consider tweeting something else."
+        sentiment_message = "Please consider revising your tweet. Harmful language may be hurtful to users of the platform."
+        sentiment_message2 = "Let's make sure we have #HealthyConversations on Twitter."
         polarity_text = "Negative"
+        return render_template('tweet-negative.html', score=score['compound'], my_tweet=my_tweet, polarity_text=polarity_text, sentiment_message=sentiment_message, sentiment_message2=sentiment_message2)
     elif score['compound'] == 0:
         sentiment_message = "Your tweet should be good to go!"
         polarity_text = "Neutral"
+        return render_template('tweet-positive-neutral.html', score=score['compound'], my_tweet=my_tweet, polarity_text=polarity_text, sentiment_message=sentiment_message, sentiment_message2=sentiment_message2)
     else:
         sentiment_message = "Your tweet should be good to go. Thanks for spreading some positivity!"
         polarity_text = "Positive"
-
-    html_string = '<blockquote class="twitter-tweet"><p lang="en" dir="ltr">On the blog, the latest from Rick on tour info, adaptations and more! <a href="https://t.co/vsYgjAzp27">https://t.co/vsYgjAzp27</a> (artwork by Orpheus Collar) <a href="https://t.co/4j9Ccvgbx4">pic.twitter.com/4j9Ccvgbx4</a></p>&mdash; Rick Riordan (@rickriordan) <a href="https://twitter.com/rickriordan/status/1309896857930338304?ref_src=twsrc%5Etfw">September 26, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>'
-
-    return render_template('tweet-positive-neutral.html', score=score['compound'], my_tweet=my_tweet, polarity_text=polarity_text, sentiment_message=sentiment_message, sentiment_message2=sentiment_message2, html_string=html_string)
+        return render_template('tweet-positive-neutral.html', score=score['compound'], my_tweet=my_tweet, polarity_text=polarity_text, sentiment_message=sentiment_message, sentiment_message2=sentiment_message2)
 
 
 @app.route('/tweet', methods = ['POST'])
@@ -99,9 +98,11 @@ def search_it():
         elif counter == 9: html_string9 = data['html']
         elif counter == 10: html_string10 = data['html']
 
+    note = 'Negative tweets were removed in this search'
+
     print(blocked)
     search_message = 'Search results for: ' + search_string
-    return render_template('search.html', search_message=search_message, html_string1=html_string1, html_string2=html_string2, html_string3=html_string3, html_string4=html_string4, html_string5=html_string5, html_string6=html_string6, html_string7=html_string7, html_string8=html_string8, html_string9=html_string9, html_string10=html_string10)
+    return render_template('search.html', search_message=search_message, note=note, html_string1=html_string1, html_string2=html_string2, html_string3=html_string3, html_string4=html_string4, html_string5=html_string5, html_string6=html_string6, html_string7=html_string7, html_string8=html_string8, html_string9=html_string9, html_string10=html_string10)
 
 
 @app.route('/search_results', methods = ['POST'])
