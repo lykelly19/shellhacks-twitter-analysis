@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>#Twitter</title>
+    <title>#Search</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles.css') }}">
-<script></script>
-
 <style>
 label[for=name]
 {
@@ -39,14 +37,14 @@ input[type=text] {
   padding: 12px 20px 12px 40px;
   margin-top: 10px;
   margin-bottom: 10px;
-  background-image: url('/static/twitter-purple-logo3.png')
+  background-image: url('/static/purple-magnifying-glass.png')
 }
-#search {
+#tweet {
   float:left;
   background-color: white;
   color: rgb(135, 17, 159);
 }
-#timeline-message {
+#search-message {
   margin-top: 50px;
   margin-bottom: 20px;
   font-size: 1.6em;
@@ -54,18 +52,21 @@ input[type=text] {
   text-align: center;
 }
 </style>
-
 <body>
-<h1>#Positivity</h1>
-<form action="/input" method="post">
-  <label for="name">What's on your mind?</label><br>
-  <input type="text" name="my-tweet" placeholder="Tweet something here..."><br>
+<h1>#Search</h1>
+<form action="/search" method="post">
+  <label for="name">What do you want to learn more about?</label><br>
+  <input type="text" name="search-string" placeholder="I want to learn more about..."><br>
   <input type="submit" value="Submit">
 </form>
-<form action="/search_results" method="post">
-  <input type="submit" value="Go to Search" id="search">
+<form action="/">
+  <input type="submit" value="Go to Tweet" id="tweet">
 </form>
-<p id="timeline-message">My User Timeline</p>
-<a class="twitter-timeline" href="https://twitter.com/dragonfruit888?ref_src=twsrc%5Etfw">Tweets by dragonfruit888</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p id="search-message">{{ search_message | safe }}</p>
+{{ html_string1 | safe }}
+{{ html_string2 | safe }}
+{{ html_string3 | safe }}
+{{ html_string4 | safe }}
+{{ html_string5 | safe }}
 </body>
 </html>

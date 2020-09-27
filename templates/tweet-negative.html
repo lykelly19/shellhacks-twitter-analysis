@@ -26,16 +26,21 @@
       #score-color {
         color: rgb(135, 17, 159);
       }
+      .flex-parent {
+        display: flex;
+      }
+      .jc-center {
+        justify-content: center;
+      }
       input[type=submit] {
-        border-radius: 4px;
         font-family: Roboto, sans-serif;
         background-color: rgb(135, 17, 159);
         color: white;
         padding: 10px;
         border: none;
-        border-radius: 25%;
-        float: right;
-        margin-bottom: 20px;
+        border-radius: 15%;
+        margin: 20px;
+        font-size: 18px;
       }
     </style>
 </head>
@@ -47,9 +52,14 @@
 <p class="result"><strong>Verdict: </strong><span id="score-color">{{ polarity_text }}</span></p>
 <p class="result">Your tweet's compound score is: {{ score }}</p>
 <p class="message-to-user"><strong>{{ sentiment_message }}</strong></p>
-<form action="/tweet" method="post">
-  <input type="submit" value="Tweet it!">
-</form>
-
+<p class="message-to-user"><strong>{{ sentiment_message2 }}</strong></p>
+<div class="flex-parent jc-center">
+  <form action="/">
+    <input type="submit" value="Go back">
+  </form>
+  <form action="/tweet" method="post">
+    <input type="submit" value="Tweet it">
+  </form>
+</div>
 </body>
 </html>

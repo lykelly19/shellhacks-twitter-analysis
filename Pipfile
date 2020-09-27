@@ -8,6 +8,8 @@ verify_ssl = true
 [packages]
 flask = "*"
 vadersentiment = "*"
+tweepy = "*"
+python-dotenv = "*"
 
 [requires]
 python_version = "3.8"
